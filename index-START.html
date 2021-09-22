@@ -18,28 +18,92 @@
     }
 
     // Regular
+    console.log("hello");
 
     // Interpolated
+    //1. %s is replaced with 💩 
+    console.log("Hello i am a %s string 💩", '💩');
 
     // Styled
+    //1. for styling a string we pass %c in fromt of string
+    //2. after , we give styling for string
+    console.log("%c hi, my name is tanmay", "font-size:20px; color: green; background: red;");
 
     // warning!
+    //1.  To give a warning
+    console.warn("Ohh NOO!")
 
     // Error :|
+    //1. to give a error meassage
+    console.error("shitty error occured");
 
     // Info
+    console.info('Crocodiles eat 3-4 people per year');
 
     // Testing
+    // 1. it test a condition ex - (1 ===7) that return true or false
+    // 2. if condition is true nothing will happen
+    //3. if condition is false string or text after condition will print in console 
+    console.assert(1 === 1, "1 is not equal to 1");
+    console.assert(1 === 7, "1 is not equal to 7");
 
     // clearing
+    // 1. To clear console
+    console.clear();
 
     // Viewing DOM Elements
+    let p = document.querySelector('p');
+    console.log(p);
+    // 1. to get all the methods and properties associated with let p
+    console.dir(p);
+    console.clear();
 
     // Grouping together
+    // 1. this creates a dropdown list with the name present in console.group()
+    // 2. all the console.log() are elements of dropdown
+
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`this is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} year old`);
+      console.log(`${dog.name} is male`);
+      console.groupEnd(`${dog.name}`);
+    });
+
+    // 3. To collapse the group or dropdown by default
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`this is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} year old`);
+      console.log(`${dog.name} is male`);
+      console.groupEnd(`${dog.name}`);
+    });
+
 
     // counting
+    // 1. it counts the no's of time i have used a word
+    console.count("hi");
+    console.count("hello");
+    console.count("hi");
+    console.count("hi");
+    console.count("hello");
+    console.count("hello");
+    console.count("bye");
+    console.count("hi");
 
     // timing
+    //1. it is used to check the time taken by code to run either to run a file 
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+    //Table
+    // 1. it is used to convert an array of objects into a table
+    console.table(dogs);
 
   </script>
 </body>
